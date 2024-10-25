@@ -1,0 +1,12 @@
+.main{
+    box-sizing: border-box;
+    height:100px;
+    width:100vw;
+    background-color: black;
+    
+    
+}
+h2{
+    text-align: center;
+    color: white;
+}
