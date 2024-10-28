@@ -1,8 +1,55 @@
-.nav{
+.nav {
     background-color: black;
-
+    margin-top: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center items vertically */
+    width: 100vw;
+    padding: 10px 0; /* Add some padding for better spacing */
 }
-.nav img{
-    border-radius: 50%;
-    height: 50px;
+
+.nav p {
+    font-size: 20px;
+    font-weight: 600;
+    color: yellow;
+    margin-left: 800px; /* Adjusted margin for spacing */
+    cursor: pointer;
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.nav p:hover {
+    color: lightyellow; /* Change color on hover for effect */
+}
+
+.theme {
+    position: relative;
+    width: 70px;
+    height: 20px;
+    margin-left: 300px;
+    background: white;
+    border-radius: 30px;
+    cursor: pointer;
+    display: flex; /* Use flexbox for easier alignment */
+    align-items: center; /* Center the span vertically */
+    padding: 3px; /* Add some padding */
+    transition: background-color 0.3s; /* Smooth background transition */
+}
+
+.theme.active {
+    background-color: black; /* Change background color when active */
+}
+
+.theme span {
+    position: absolute;
+    background-color: black;
+    width: 10px;
+    height: 14px;
+    border-radius: 90%;
+    transition: all 0.5s;
+    left: 5px; /* Initial position */
+}
+
+.theme.active span {
+    left: 55px;
+    background-color: white; /* Move the span when active */
 }

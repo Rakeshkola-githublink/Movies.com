@@ -1,15 +1,21 @@
+import './Nav.css';
 
-
-const nav = () => {
+const Nav = ({ onThemeToggle, isActive }) => {
   return (
     <div className="nav">
-
-        <ul>
-            <li>Sign in</li>
-            
-        </ul>
+      <p>Sign In</p>
+      <div
+        className={`theme ${isActive ? 'active' : ''}`}
+        onClick={onThemeToggle}
+        role="button"
+        aria-label="Toggle theme"
+        tabIndex={0}
+        onKeyPress={(e) => e.key === 'Enter' && onThemeToggle()}
+      >
+        <span></span>
+      </div>
     </div>
-  )
+  );
 }
 
-export default nav
+export default Nav;

@@ -71,19 +71,21 @@ h3 {
 
 .image-container img {
 padding-left: 20px;
-    width: 50%;
+    width: 60%;
     height: 100px;
     cursor: pointer;
     object-fit: cover;
     border-radius: 5px;
     height: 200px;
-
+  
 }
 .image-container img:hover{
    
-    width: 90%;
-    transition: 0.3S ;
+    width: 95%;
+    transition: all ease ;
 
+
+   box-shadow: 10px 20px 20px 0px black;
     
 }
 
@@ -149,4 +151,7 @@ button {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
     }
+}
+.main-container.dark-theme {
+    background-color: black; /* Change background to black when active */
 }

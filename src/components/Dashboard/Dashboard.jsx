@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import LazyLoad from 'react-lazyload';
 import Home from "../../pages/Home/Home";
-import  './Dashboard.css';
+import './Dashboard.css';
 import Footer from '../../pages/Footer/Footer';
 import { action, thriller, horror, drama } from "../../assets/assets/assets.js";
+import Nav from '../../pages/nav/nav.jsx';
 
-// Debounce function
+// Debounce function to limit how often a function can be called
 const debounce = (func, delay) => {
   let timeoutId;
   return function(...args) {
@@ -20,11 +21,10 @@ const Dashboard = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [filteredMovies, setFilteredMovies] = useState([]);
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
 
-  // Combine all movies into a single array
   const allMovies = [...action, ...thriller, ...horror, ...drama];
 
-  // Effect to filter movies based on search term and selected category
   useEffect(() => {
     const results = allMovies.filter(movie => {
       const matchesSearch = movie.name.toLowerCase().includes(searchTerm.toLowerCase());
@@ -32,17 +32,21 @@ const Dashboard = () => {
       return matchesSearch && matchesCategory;
     });
     setFilteredMovies(results);
-  }, [searchTerm, selectedCategory]);
+  }, [searchTerm, selectedCategory, allMovies]);
 
-  // Debounced search handler
   const handleSearch = debounce((term) => {
     setSearchTerm(term);
   }, 300);
 
+  const toggleTheme = () => {
+    setIsDarkTheme(prev => !prev);
+  };
+
   return (
     <>
       <Home />
-      <div className="main-container">
+      <Nav onThemeToggle={toggleTheme} isActive={isDarkTheme} />
+      <div className={`main-container ${isDarkTheme ? 'dark-theme' : ''}`}>
         <div className="homepage-title">
           <h3>Top Movies Recommendation</h3>
           <p className='suggestion'>Top Movies Suggestion</p>
@@ -50,7 +54,7 @@ const Dashboard = () => {
             type="text"
             className="search-movies"
             placeholder="Search for movies..."
-            onChange={(e) => handleSearch(e.target.value)} // Use debounced search handler
+            onChange={(e) => handleSearch(e.target.value)}
           />
           <select onChange={(e) => setSelectedCategory(e.target.value)} value={selectedCategory}>
             <option value="All">All</option>
