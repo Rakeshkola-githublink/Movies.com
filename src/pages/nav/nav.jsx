@@ -3,7 +3,7 @@ import './Nav.css';
 const Nav = ({ onThemeToggle, isActive }) => {
   return (
     <div className="nav">
-      <p>Sign In</p>
+      <p>Sign in</p>
       <div
         className={`theme ${isActive ? 'active' : ''}`}
         onClick={onThemeToggle}
