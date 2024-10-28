@@ -4,7 +4,7 @@ import Home from "../../pages/Home/Home";
 import './Dashboard.css';
 import Footer from '../../pages/Footer/Footer';
 import { action, thriller, horror, drama } from "../../assets/assets/assets.js";
-import Nav from '../../pages/nav/nav.jsx';
+import Nav from '../../pages/Nav/Nav.jsx'
 
 // Debounce function to limit how often a function can be called
 const debounce = (func, delay) => {
